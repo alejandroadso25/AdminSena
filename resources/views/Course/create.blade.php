@@ -41,6 +41,7 @@
 
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="{{ route('courses.index') }}" class="btn btn-outline-primary ms-2">Ver registros</a>
                     <a href="{{ url('/') }}" class="btn btn-secondary ms-2">Volver</a>
                 </div>
             </form>

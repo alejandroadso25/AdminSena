@@ -16,6 +16,7 @@
 
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+                    <a href="{{ route('areas.index') }}" class="btn btn-outline-primary mt-2 ms-2">Ver registros</a>
                     <a href="{{ url('/') }}" class="btn btn-secondary mt-2 ms-2">Volver</a>
                 </div>
             </form>

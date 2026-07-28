@@ -8,6 +8,10 @@ return [
     |--------------------------------------------------------------------------
     | Default Database Connection Name
     |--------------------------------------------------------------------------
+    |
+    | Here you may specify which of the database connections below you wish
+    | to use as your default connection for all database work.
+    |
     */
 
     'default' => env('DB_CONNECTION', 'mongodb'),
@@ -16,6 +20,9 @@ return [
     |--------------------------------------------------------------------------
     | Database Connections
     |--------------------------------------------------------------------------
+    |
+    | Here are each of the database connections setup for your application.
+    |
     */
 
     'connections' => [
@@ -76,12 +83,24 @@ return [
             'prefix_indexes' => true,
         ],
 
-        // Configuración de MongoDB enlazada a las variables de tu .env
+        /*
+        |--------------------------------------------------------------------------
+        | MongoDB Connection
+        |--------------------------------------------------------------------------
+        |
+        | Configuración preparada para usar URI/DSN directa o los parámetros
+        | tradicionales (host, puerto, usuario, contraseña) desde tu .env.
+        |
+        */
+        
         'mongodb' => [
-            'driver'   => 'mongodb',
-            'dsn'      => env('MONGODB_URI'),
-            'database' => env('MONGODB_DATABASE'),
+        'driver'   => 'mongodb',
+        'dsn'      => env('MONGODB_URI'),
+        'database' => env('MONGODB_DATABASE', 'adminsena'),
+        'options'  => [
+            'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
         ],
+    ],
 
     ],
 
@@ -89,6 +108,10 @@ return [
     |--------------------------------------------------------------------------
     | Migration Repository Table
     |--------------------------------------------------------------------------
+    |
+    | This table keeps track of all the migrations that have already run for
+    | your application.
+    |
     */
 
     'migrations' => 'migrations',
@@ -97,6 +120,9 @@ return [
     |--------------------------------------------------------------------------
     | Redis Databases
     |--------------------------------------------------------------------------
+    |
+    | Redis is an open source, fast, and advanced key-value store.
+    |
     */
 
     'redis' => [

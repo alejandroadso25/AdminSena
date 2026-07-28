@@ -20,17 +20,11 @@
 
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Registrar</button>
+                    <a href="{{ route('computers.index') }}" class="btn btn-outline-primary ms-2">Ver registros</a>
                 </div>
             </form>
         </div>
     </div>
 
     <pre class="mt-3 bg-light p-3">{{ session('record') }}</pre>
-
-    <h2 class="mt-4">Computadores registrados</h2>
-    <ul class="list-group">
-        @foreach ($computers as $computer)
-            <li class="list-group-item">Número: {{ $computer->number }}, Marca: {{ $computer->brand }}</li>
-        @endforeach
-    </ul>
 @endsection
