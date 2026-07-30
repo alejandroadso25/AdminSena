@@ -11,13 +11,35 @@
     <div class="card">
         <div class="card-body">
             @if ($apprentices->isNotEmpty())
-                <ul class="list-group">
-                    @foreach ($apprentices as $apprentice)
-                        <li class="list-group-item">
-                            ID: {{ $apprentice->id }} - {{ $apprentice->name }} - {{ $apprentice->email }}
-                        </li>
-                    @endforeach
-                </ul>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Celular</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($apprentices as $apprentice)
+                            <tr>
+                                <td>{{ $apprentice->id }}</td>
+                                <td>{{ $apprentice->name }}</td>
+                                <td>{{ $apprentice->email }}</td>
+                                <td>{{ $apprentice->cell_number }}</td>
+                                <td>
+                                    <a href="{{ route('apprentices.edit', $apprentice) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <form action="{{ route('apprentices.destroy', $apprentice) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Eliminar aprendiz?')">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @else
                 <p class="text-muted">No hay aprendices registrados.</p>
             @endif

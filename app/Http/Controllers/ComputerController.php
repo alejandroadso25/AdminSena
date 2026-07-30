@@ -25,6 +25,25 @@ class ComputerController extends Controller
     {
         $computer = Computer::create($request->all());
 
-        return redirect()->route('computers.create')->with('record', $computer->toJson(JSON_PRETTY_PRINT));
+        return redirect()->route('computers.index')->with('record', $computer->toJson(JSON_PRETTY_PRINT));
+    }
+
+    public function edit(Computer $computer)
+    {
+        return view('Computer.edit', compact('computer'));
+    }
+
+    public function update(Request $request, Computer $computer)
+    {
+        $computer->update($request->all());
+
+        return redirect()->route('computers.index');
+    }
+
+    public function destroy(Computer $computer)
+    {
+        $computer->delete();
+
+        return redirect()->route('computers.index');
     }
 }

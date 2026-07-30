@@ -11,11 +11,31 @@
     <div class="card">
         <div class="card-body">
             @if ($areas->isNotEmpty())
-                <ul class="list-group">
-                    @foreach ($areas as $area)
-                        <li class="list-group-item">ID: {{ $area->id }} - {{ $area->name }}</li>
-                    @endforeach
-                </ul>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($areas as $area)
+                            <tr>
+                                <td>{{ $area->id }}</td>
+                                <td>{{ $area->name }}</td>
+                                <td>
+                                    <a href="{{ route('areas.edit', $area) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <form action="{{ route('areas.destroy', $area) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Eliminar área?')">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @else
                 <p class="text-muted">No hay áreas registradas.</p>
             @endif

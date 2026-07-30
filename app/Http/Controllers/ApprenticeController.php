@@ -29,7 +29,29 @@ class ApprenticeController extends Controller
     {
         $apprentice = Apprentice::create($request->all());
 
-        return redirect()->route('apprentices.create')->with('record', $apprentice->toJson(JSON_PRETTY_PRINT));
+        return redirect()->route('apprentices.index')->with('record', $apprentice->toJson(JSON_PRETTY_PRINT));
+    }
+
+    public function edit(Apprentice $apprentice)
+    {
+        $courses = Course::all();
+        $computers = Computer::all();
+
+        return view('Apprentice.edit', compact('apprentice', 'courses', 'computers'));
+    }
+
+    public function update(Request $request, Apprentice $apprentice)
+    {
+        $apprentice->update($request->all());
+
+        return redirect()->route('apprentices.index');
+    }
+
+    public function destroy(Apprentice $apprentice)
+    {
+        $apprentice->delete();
+
+        return redirect()->route('apprentices.index');
     }
 }
 

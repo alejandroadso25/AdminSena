@@ -11,13 +11,33 @@
     <div class="card">
         <div class="card-body">
             @if ($trainingCenters->isNotEmpty())
-                <ul class="list-group">
-                    @foreach ($trainingCenters as $center)
-                        <li class="list-group-item">
-                            ID: {{ $center->id }} - <strong>{{ $center->name }}</strong> - {{ $center->location }}
-                        </li>
-                    @endforeach
-                </ul>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Ubicación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($trainingCenters as $center)
+                            <tr>
+                                <td>{{ $center->id }}</td>
+                                <td>{{ $center->name }}</td>
+                                <td>{{ $center->location }}</td>
+                                <td>
+                                    <a href="{{ route('training-centers.edit', $center) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <form action="{{ route('training-centers.destroy', $center) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Eliminar centro de formación?')">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @else
                 <p class="text-muted">No hay centros de formación registrados.</p>
             @endif

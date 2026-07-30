@@ -11,13 +11,33 @@
     <div class="card">
         <div class="card-body">
             @if ($teachers->isNotEmpty())
-                <ul class="list-group">
-                    @foreach ($teachers as $teacher)
-                        <li class="list-group-item">
-                            ID: {{ $teacher->id }} - {{ $teacher->name }} - {{ $teacher->email }}
-                        </li>
-                    @endforeach
-                </ul>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($teachers as $teacher)
+                            <tr>
+                                <td>{{ $teacher->id }}</td>
+                                <td>{{ $teacher->name }}</td>
+                                <td>{{ $teacher->email }}</td>
+                                <td>
+                                    <a href="{{ route('teachers.edit', $teacher) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <form action="{{ route('teachers.destroy', $teacher) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Eliminar instructor?')">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @else
                 <p class="text-muted">No hay instructores registrados.</p>
             @endif

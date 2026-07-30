@@ -17,6 +17,7 @@
                             <th>ID</th>
                             <th>Número</th>
                             <th>Marca</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,6 +26,14 @@
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->number }}</td>
                                 <td>{{ $item->brand }}</td>
+                                <td>
+                                    <a href="{{ route('computers.edit', $item) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <form action="{{ route('computers.destroy', $item) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Eliminar computador?')">Eliminar</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

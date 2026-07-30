@@ -11,13 +11,33 @@
     <div class="card">
         <div class="card-body">
             @if ($courses->isNotEmpty())
-                <ul class="list-group">
-                    @foreach ($courses as $course)
-                        <li class="list-group-item">
-                            ID: {{ $course->id }} - Curso {{ $course->course_number }} - {{ $course->day }}
-                        </li>
-                    @endforeach
-                </ul>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Número</th>
+                            <th>Día</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($courses as $course)
+                            <tr>
+                                <td>{{ $course->id }}</td>
+                                <td>{{ $course->course_number }}</td>
+                                <td>{{ $course->day }}</td>
+                                <td>
+                                    <a href="{{ route('courses.edit', $course) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <form action="{{ route('courses.destroy', $course) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Eliminar curso?')">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @else
                 <p class="text-muted">No hay cursos registrados.</p>
             @endif
