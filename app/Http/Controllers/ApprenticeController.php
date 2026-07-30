@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class ApprenticeController extends Controller
 {
+    // Mostrar todos los aprendices en la vista de tabla
     public function index()
     {
         $apprentices = Apprentice::all();
@@ -16,6 +17,7 @@ class ApprenticeController extends Controller
         return view('Apprentice.index', compact('apprentices'));
     }
 
+    // Mostrar el formulario para registrar un nuevo aprendiz
     public function create()
     {
         $courses = Course::all();
@@ -25,6 +27,7 @@ class ApprenticeController extends Controller
         return view('Apprentice.create', compact('courses', 'computers', 'apprentices'));
     }
 
+    // Guardar un nuevo aprendiz en la base de datos
     public function store(Request $request)
     {
         $apprentice = Apprentice::create($request->all());
@@ -32,6 +35,7 @@ class ApprenticeController extends Controller
         return redirect()->route('apprentices.index')->with('record', $apprentice->toJson(JSON_PRETTY_PRINT));
     }
 
+    // Mostrar el formulario de edición con los valores actuales cargados
     public function edit(Apprentice $apprentice)
     {
         $courses = Course::all();
@@ -40,6 +44,7 @@ class ApprenticeController extends Controller
         return view('Apprentice.edit', compact('apprentice', 'courses', 'computers'));
     }
 
+    // Actualizar el aprendiz seleccionado con los datos proporcionados
     public function update(Request $request, Apprentice $apprentice)
     {
         $apprentice->update($request->all());
@@ -47,6 +52,7 @@ class ApprenticeController extends Controller
         return redirect()->route('apprentices.index');
     }
 
+    // Eliminar el aprendiz seleccionado y redirigir a la lista
     public function destroy(Apprentice $apprentice)
     {
         $apprentice->delete();

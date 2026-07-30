@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
+    // Mostrar todos los cursos en la vista de tabla
     public function index()
     {
         $courses = Course::all();
@@ -17,6 +18,7 @@ class CourseController extends Controller
         return view('Course.index', compact('courses'));
     }
 
+    // Mostrar el formulario para crear un nuevo curso
     public function create()
     {
         $areas = Area::all();
@@ -27,6 +29,7 @@ class CourseController extends Controller
         return view('Course.create', compact('areas', 'training_centers', 'courses', 'computers'));
     }
 
+    // Guardar un nuevo curso en la base de datos
     public function store(Request $request)
     {
         $course = Course::create($request->all());
@@ -34,6 +37,7 @@ class CourseController extends Controller
         return redirect()->route('courses.index')->with('record', $course->toJson(JSON_PRETTY_PRINT));
     }
 
+    // Mostrar el formulario de edición con los datos del curso seleccionado cargados
     public function edit(Course $course)
     {
         $areas = Area::all();
@@ -42,6 +46,7 @@ class CourseController extends Controller
         return view('Course.edit', compact('course', 'areas', 'training_centers'));
     }
 
+    // Actualizar el curso seleccionado con los datos del formulario
     public function update(Request $request, Course $course)
     {
         $course->update($request->all());
@@ -49,6 +54,7 @@ class CourseController extends Controller
         return redirect()->route('courses.index');
     }
 
+    // Eliminar el curso seleccionado y redirigir a la lista
     public function destroy(Course $course)
     {
         $course->delete();
