@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mongodb'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -82,25 +82,6 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
-        /*
-        |--------------------------------------------------------------------------
-        | MongoDB Connection
-        |--------------------------------------------------------------------------
-        |
-        | Configuración preparada para usar URI/DSN directa o los parámetros
-        | tradicionales (host, puerto, usuario, contraseña) desde tu .env.
-        |
-        */
-        
-        'mongodb' => [
-        'driver'   => 'mongodb',
-        'dsn'      => env('MONGODB_URI'),
-        'database' => env('MONGODB_DATABASE', 'adminsena'),
-        'options'  => [
-            'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
-        ],
-    ],
 
     ],
 

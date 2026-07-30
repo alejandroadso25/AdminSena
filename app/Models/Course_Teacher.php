@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use MongoDB\Laravel\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Course_Teacher extends Model
 {
     use HasFactory;
 
-    protected $connection = 'mongodb';
-    protected $collection = 'course__teachers';
+    protected $table = 'course__teachers';
 
     protected $fillable = ['course_id', 'teacher_id'];
 
