@@ -27,15 +27,4 @@
             </form>
         </div>
     </div>
-
-    <pre class="mt-3 bg-light p-3">{{ session('record') }}</pre>
-
-    <h2 class="mt-4">Centros de formación registrados</h2>
-    <ul class="list-group">
-        @foreach ($trainingCenters as $center)
-            <li class="list-group-item">
-                <strong>{{ $center->name }}</strong> - {{ $center->location }}
-            </li>
-        @endforeach
-    </ul>
 @endsection

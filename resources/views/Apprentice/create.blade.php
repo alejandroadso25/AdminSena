@@ -52,13 +52,4 @@
             </form>
         </div>
     </div>
-
-    <pre class="mt-3 bg-light p-3">{{ session('record') }}</pre>
-
-    <h2 class="mt-4">Aprendices registrados</h2>
-    <ul class="list-group">
-        @foreach ($apprentices as $apprentice)
-            <li class="list-group-item">ID: {{ $apprentice->id }} - Nombre: {{ $apprentice->name }} - Email: {{ $apprentice->email }} - Celular: {{ $apprentice->cell_number }} - Curso_id: {{ $apprentice->course_id }} - Computador_id: {{ $apprentice->computer_id }}</li>
-        @endforeach
-    </ul>
 @endsection

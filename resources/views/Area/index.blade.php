@@ -13,7 +13,7 @@
             @if ($areas->isNotEmpty())
                 <ul class="list-group">
                     @foreach ($areas as $area)
-                        <li class="list-group-item">{{ $area->name }}</li>
+                        <li class="list-group-item">ID: {{ $area->id }} - {{ $area->name }}</li>
                     @endforeach
                 </ul>
             @else

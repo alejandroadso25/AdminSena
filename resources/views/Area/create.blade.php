@@ -22,13 +22,4 @@
             </form>
         </div>
     </div>
-
-    <pre class="mt-3 bg-light p-3">{{ session('record') }}</pre>
-
-    <h2 class="mt-4">Áreas registradas</h2>
-    <ul class="list-group">
-        @foreach ($areas as $area)
-            <li class="list-group-item">{{ $area->name }}</li>
-        @endforeach
-    </ul>
 @endsection

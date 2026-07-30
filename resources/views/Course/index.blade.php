@@ -14,7 +14,7 @@
                 <ul class="list-group">
                     @foreach ($courses as $course)
                         <li class="list-group-item">
-                            Curso {{ $course->course_number }} - {{ $course->day }}
+                            ID: {{ $course->id }} - Curso {{ $course->course_number }} - {{ $course->day }}
                         </li>
                     @endforeach
                 </ul>

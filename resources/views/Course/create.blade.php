@@ -47,13 +47,4 @@
             </form>
         </div>
     </div>
-
-    <pre class="mt-3 bg-light p-3">{{ session('record') }}</pre>
-
-    <h2 class="mt-4">Cursos registrados</h2>
-    <ul class="list-group">
-        @foreach ($courses as $course)
-            <li class="list-group-item">ID: {{ $course->id }} - Número: {{ $course->course_number }} - Día: {{ $course->day }} - Área: {{ $course->area_id }} - Centro: {{ $course->training_center_id }}</li>
-        @endforeach
-    </ul>
 @endsection

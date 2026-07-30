@@ -14,7 +14,7 @@
                 <ul class="list-group">
                     @foreach ($teachers as $teacher)
                         <li class="list-group-item">
-                            {{ $teacher->name }} - {{ $teacher->email }}
+                            ID: {{ $teacher->id }} - {{ $teacher->name }} - {{ $teacher->email }}
                         </li>
                     @endforeach
                 </ul>

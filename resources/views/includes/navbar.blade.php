@@ -6,6 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Inicio</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('areas.create') }}">Áreas</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('training-centers.create') }}">Centros</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('computers.create') }}">Computadores</a></li>

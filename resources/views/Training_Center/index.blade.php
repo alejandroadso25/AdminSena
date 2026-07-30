@@ -14,7 +14,7 @@
                 <ul class="list-group">
                     @foreach ($trainingCenters as $center)
                         <li class="list-group-item">
-                            <strong>{{ $center->name }}</strong> - {{ $center->location }}
+                            ID: {{ $center->id }} - <strong>{{ $center->name }}</strong> - {{ $center->location }}
                         </li>
                     @endforeach
                 </ul>
