@@ -25,7 +25,11 @@
                                 <td>{{ $area->id }}</td>
                                 <td>{{ $area->name }}</td>
                                 <td>
+                                    <!-- Botón para visualizar detalles del área -->
+                                    <a href="{{ route('areas.show', $area) }}" class="btn btn-sm btn-outline-info">Visualizar</a>
+                                    <!-- Botón para editar el área -->
                                     <a href="{{ route('areas.edit', $area) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <!-- Formulario para eliminar el área -->
                                     <form action="{{ route('areas.destroy', $area) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')

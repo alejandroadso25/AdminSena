@@ -17,6 +17,12 @@ class ApprenticeController extends Controller
         return view('Apprentice.index', compact('apprentices'));
     }
 
+    // Mostrar detalles de un aprendiz específico
+    public function show(Apprentice $apprentice)
+    {
+        return view('Apprentice.show', compact('apprentice'));
+    }
+
     // Mostrar el formulario para registrar un nuevo aprendiz
     public function create()
     {

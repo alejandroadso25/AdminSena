@@ -16,6 +16,12 @@ class TrainingCenterController extends Controller
         return view('Training_Center.index', compact('trainingCenters'));
     }
 
+    // Mostrar detalles de un centro de formación específico
+    public function show(Training_Center $training_center)
+    {
+        return view('Training_Center.show', compact('training_center'));
+    }
+
     // Mostrar el formulario para crear un nuevo centro de formación
     public function create()
     {

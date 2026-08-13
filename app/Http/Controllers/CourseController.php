@@ -18,6 +18,12 @@ class CourseController extends Controller
         return view('Course.index', compact('courses'));
     }
 
+    // Mostrar detalles de un curso específico
+    public function show(Course $course)
+    {
+        return view('Course.show', compact('course'));
+    }
+
     // Mostrar el formulario para crear un nuevo curso
     public function create()
     {

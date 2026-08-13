@@ -16,6 +16,12 @@ class AreaController extends Controller
         return view('Area.index', compact('areas'));
     }
 
+    // Mostrar detalles de un área específica
+    public function show(Area $area)
+    {
+        return view('Area.show', compact('area'));
+    }
+
     // Mostrar el formulario para crear una nueva área
     public function create()
     {

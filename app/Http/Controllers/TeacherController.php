@@ -18,6 +18,12 @@ class TeacherController extends Controller
         return view('Teacher.index', compact('teachers'));
     }
 
+    // Mostrar detalles de un instructor específico
+    public function show(Teacher $teacher)
+    {
+        return view('Teacher.show', compact('teacher'));
+    }
+
     // Mostrar el formulario para crear un nuevo instructor
     public function create()
     {

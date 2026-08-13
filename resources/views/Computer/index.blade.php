@@ -27,7 +27,11 @@
                                 <td>{{ $item->number }}</td>
                                 <td>{{ $item->brand }}</td>
                                 <td>
+                                    <!-- Botón para visualizar detalles del computador -->
+                                    <a href="{{ route('computers.show', $item) }}" class="btn btn-sm btn-outline-info">Visualizar</a>
+                                    <!-- Botón para editar el computador -->
                                     <a href="{{ route('computers.edit', $item) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <!-- Formulario para eliminar el computador -->
                                     <form action="{{ route('computers.destroy', $item) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')

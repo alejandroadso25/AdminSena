@@ -29,7 +29,11 @@
                                 <td>{{ $apprentice->email }}</td>
                                 <td>{{ $apprentice->cell_number }}</td>
                                 <td>
+                                    <!-- Botón para visualizar detalles del aprendiz -->
+                                    <a href="{{ route('apprentices.show', $apprentice) }}" class="btn btn-sm btn-outline-info">Visualizar</a>
+                                    <!-- Botón para editar el aprendiz -->
                                     <a href="{{ route('apprentices.edit', $apprentice) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <!-- Formulario para eliminar el aprendiz -->
                                     <form action="{{ route('apprentices.destroy', $apprentice) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')

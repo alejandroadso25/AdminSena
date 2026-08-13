@@ -15,6 +15,12 @@ class ComputerController extends Controller
         return view('Computer.index', compact('computer'));
     }
 
+    // Mostrar detalles de un computador específico
+    public function show(Computer $computer)
+    {
+        return view('Computer.show', compact('computer'));
+    }
+
     // Mostrar el formulario para crear un nuevo computador
     public function create()
     {

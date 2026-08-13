@@ -27,7 +27,11 @@
                                 <td>{{ $course->course_number }}</td>
                                 <td>{{ $course->day }}</td>
                                 <td>
+                                    <!-- Botón para visualizar detalles del curso -->
+                                    <a href="{{ route('courses.show', $course) }}" class="btn btn-sm btn-outline-info">Visualizar</a>
+                                    <!-- Botón para editar el curso -->
                                     <a href="{{ route('courses.edit', $course) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <!-- Formulario para eliminar el curso -->
                                     <form action="{{ route('courses.destroy', $course) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')

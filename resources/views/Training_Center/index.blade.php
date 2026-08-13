@@ -27,7 +27,11 @@
                                 <td>{{ $center->name }}</td>
                                 <td>{{ $center->location }}</td>
                                 <td>
+                                    <!-- Botón para visualizar detalles del centro de formación -->
+                                    <a href="{{ route('training-centers.show', $center) }}" class="btn btn-sm btn-outline-info">Visualizar</a>
+                                    <!-- Botón para editar el centro de formación -->
                                     <a href="{{ route('training-centers.edit', $center) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <!-- Formulario para eliminar el centro de formación -->
                                     <form action="{{ route('training-centers.destroy', $center) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')

@@ -27,7 +27,11 @@
                                 <td>{{ $teacher->name }}</td>
                                 <td>{{ $teacher->email }}</td>
                                 <td>
+                                    <!-- Botón para visualizar detalles del instructor -->
+                                    <a href="{{ route('teachers.show', $teacher) }}" class="btn btn-sm btn-outline-info">Visualizar</a>
+                                    <!-- Botón para editar el instructor -->
                                     <a href="{{ route('teachers.edit', $teacher) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                    <!-- Formulario para eliminar el instructor -->
                                     <form action="{{ route('teachers.destroy', $teacher) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
