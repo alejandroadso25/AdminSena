@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Detalles del Centro de Formación')
+@section('title', 'Listar Centro de Formación')
 
 @section('content')
     <!-- Encabezado con título y botón volver -->
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="h4">Detalles del Centro de Formación</h1>
+        <h1 class="h4">Listar Centro de Formación</h1>
         <!-- Botón de volver habilitado -->
         <a href="{{ route('training-centers.index') }}" class="btn btn-secondary">Volver</a>
     </div>

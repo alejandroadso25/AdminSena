@@ -9,6 +9,7 @@ class Computer extends Model
 {
     use HasFactory;
 
+    // Campos habilitados para la asignación masiva del CRUD.
     protected $fillable = [
         'number',
         'brand',
@@ -16,6 +17,7 @@ class Computer extends Model
 
     public function apprentices()
     {
+        // Un computador puede estar asociado a varios aprendices.
         return $this->hasMany(Apprentice::class);
     }
 }
