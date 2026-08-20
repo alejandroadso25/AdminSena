@@ -8,6 +8,7 @@
 
     {{-- Bootstrap y Font Awesome se cargan desde CDN; no requiere Vite. --}}
     @include('includes.dependencias')
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>

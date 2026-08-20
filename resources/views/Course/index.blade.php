@@ -14,7 +14,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Número</th>
                             <th>Día</th>
                             <th>Acciones</th>
@@ -23,7 +22,6 @@
                     <tbody>
                         @foreach ($courses as $course)
                             <tr>
-                                <td>{{ $course->id }}</td>
                                 <td>{{ $course->course_number }}</td>
                                 <td>{{ $course->day }}</td>
                                 <td>

@@ -14,7 +14,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Acciones</th>
@@ -23,7 +22,6 @@
                     <tbody>
                         @foreach ($teachers as $teacher)
                             <tr>
-                                <td>{{ $teacher->id }}</td>
                                 <td>{{ $teacher->name }}</td>
                                 <td>{{ $teacher->email }}</td>
                                 <td>

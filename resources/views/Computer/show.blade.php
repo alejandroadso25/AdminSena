@@ -13,12 +13,8 @@
     <!-- Tarjeta con información del computador -->
     <div class="card">
         <div class="card-body">
-            <!-- Datos básicos: ID, Número y Marca -->
+            <!-- Datos básicos del computador -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <h5>ID</h5>
-                    <p>{{ $computer->id }}</p>
-                </div>
                 <div class="col-md-6">
                     <h5>Número</h5>
                     <p>{{ $computer->number }}</p>

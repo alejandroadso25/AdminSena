@@ -19,7 +19,6 @@
                     <!-- Encabezados de la tabla -->
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Curso</th>
                             <th>Profesor</th>
                             <th>Acciones</th>
@@ -29,7 +28,6 @@
                     <tbody>
                         @foreach ($courseTeachers as $courseTeacher)
                             <tr>
-                                <td>{{ $courseTeacher->id }}</td>
                                 <td>{{ $courseTeacher->course->course_number ?? 'N/A' }}</td>
                                 <td>{{ $courseTeacher->teacher->name ?? 'N/A' }}</td>
                                 <td>

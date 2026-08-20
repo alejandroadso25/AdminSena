@@ -12,7 +12,10 @@
         </div>
 
         <div class="history-content">
-            <div class="history-year">1957</div>
+            <div class="history-media">
+                <img src="{{ route('assets.file', ['filename' => 'Sena 1957.jpg']) }}" alt="SENA en 1957">
+                <span class="history-year">1957</span>
+            </div>
             <div>
                 <h2>El comienzo de una gran misión</h2>
                 <p>El Servicio Nacional de Aprendizaje nació el 21 de junio de 1957 con la misión de brindar formación profesional a los trabajadores, jóvenes y adultos del país.</p>
@@ -21,7 +24,10 @@
         </div>
 
         <div class="history-content history-content-reverse">
-            <div class="history-year">HOY</div>
+            <div class="history-media">
+                <img src="{{ route('assets.file', ['filename' => 'Sena hoy.jpg']) }}" alt="SENA en la actualidad">
+                <span class="history-year">HOY</span>
+            </div>
             <div>
                 <h2>Formación que transforma</h2>
                 <p>Actualmente, el SENA ofrece formación técnica, tecnológica y complementaria, además de servicios para el empleo, el emprendimiento y el fortalecimiento empresarial.</p>

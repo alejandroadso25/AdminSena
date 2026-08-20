@@ -14,7 +14,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Número</th>
                             <th>Marca</th>
                             <th>Acciones</th>
@@ -23,7 +22,6 @@
                     <tbody>
                         @foreach ($computer as $item)
                             <tr>
-                                <td>{{ $item->id }}</td>
                                 <td>{{ $item->number }}</td>
                                 <td>{{ $item->brand }}</td>
                                 <td>

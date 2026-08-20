@@ -13,12 +13,8 @@
     <!-- Tarjeta con información del centro de formación -->
     <div class="card">
         <div class="card-body">
-            <!-- Datos básicos: ID, Nombre y Ubicación -->
+            <!-- Datos básicos del centro de formación -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <h5>ID</h5>
-                    <p>{{ $training_center->id }}</p>
-                </div>
                 <div class="col-md-6">
                     <h5>Nombre</h5>
                     <p>{{ $training_center->name }}</p>

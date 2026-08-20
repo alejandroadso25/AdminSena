@@ -14,7 +14,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Celular</th>
@@ -24,7 +23,6 @@
                     <tbody>
                         @foreach ($apprentices as $apprentice)
                             <tr>
-                                <td>{{ $apprentice->id }}</td>
                                 <td>{{ $apprentice->name }}</td>
                                 <td>{{ $apprentice->email }}</td>
                                 <td>{{ $apprentice->cell_number }}</td>

@@ -14,7 +14,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Acciones</th>
                         </tr>
@@ -22,7 +21,6 @@
                     <tbody>
                         @foreach ($areas as $area)
                             <tr>
-                                <td>{{ $area->id }}</td>
                                 <td>{{ $area->name }}</td>
                                 <td>
                                     <!-- Botón para visualizar detalles del área -->

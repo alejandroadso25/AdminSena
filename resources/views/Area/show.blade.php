@@ -13,12 +13,8 @@
     <!-- Tarjeta con información del área -->
     <div class="card">
         <div class="card-body">
-            <!-- Datos básicos: ID y Nombre -->
+            <!-- Datos básicos del área -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <h5>ID</h5>
-                    <p>{{ $area->id }}</p>
-                </div>
                 <div class="col-md-6">
                     <h5>Nombre</h5>
                     <p>{{ $area->name }}</p>

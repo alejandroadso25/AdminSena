@@ -13,12 +13,8 @@
     <!-- Tarjeta con información del curso -->
     <div class="card">
         <div class="card-body">
-            <!-- Datos básicos: ID y Número del Curso -->
+            <!-- Datos básicos del curso -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <h5>ID</h5>
-                    <p>{{ $course->id }}</p>
-                </div>
                 <div class="col-md-6">
                     <h5>Número del Curso</h5>
                     <p>{{ $course->course_number }}</p>

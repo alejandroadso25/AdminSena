@@ -13,12 +13,8 @@
     <!-- Tarjeta con información de la asignación -->
     <div class="card">
         <div class="card-body">
-            <!-- Datos básicos: ID y Curso -->
+            <!-- Datos básicos de la asignación -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <h5>ID</h5>
-                    <p>{{ $courseTeacher->id }}</p>
-                </div>
                 <div class="col-md-6">
                     <h5>Curso</h5>
                     <p>{{ $courseTeacher->course->course_number ?? 'N/A' }}</p>

@@ -14,7 +14,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Ubicación</th>
                             <th>Acciones</th>
@@ -23,7 +22,6 @@
                     <tbody>
                         @foreach ($trainingCenters as $center)
                             <tr>
-                                <td>{{ $center->id }}</td>
                                 <td>{{ $center->name }}</td>
                                 <td>{{ $center->location }}</td>
                                 <td>

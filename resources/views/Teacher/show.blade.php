@@ -13,12 +13,8 @@
     <!-- Tarjeta con información del instructor -->
     <div class="card">
         <div class="card-body">
-            <!-- Datos básicos: ID y Nombre -->
+            <!-- Datos básicos del instructor -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <h5>ID</h5>
-                    <p>{{ $teacher->id }}</p>
-                </div>
                 <div class="col-md-6">
                     <h5>Nombre</h5>
                     <p>{{ $teacher->name }}</p>
