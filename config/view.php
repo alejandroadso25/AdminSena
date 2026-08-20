@@ -14,7 +14,9 @@ return [
     */
 
     'paths' => [
+        // Vistas de páginas y CRUD dentro de resources/views.
         resource_path('views'),
+        // Componentes compartidos ubicados directamente en resources.
         resource_path(),
     ],
 

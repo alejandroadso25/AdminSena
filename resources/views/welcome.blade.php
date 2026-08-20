@@ -40,6 +40,7 @@
 
     {{-- Contenido principal: carrusel y tarjetas de acceso a los CRUD. --}}
     <main>
+        {{-- Carrusel institucional; sus imágenes y estilos están separados del contenido del home. --}}
         @include('includes.carousel')
 
         <section class="news-section container" aria-labelledby="news-title">
@@ -56,6 +57,7 @@
         </section>
 
         <section class="sena-section container" aria-labelledby="sena-section-title">
+            {{-- Resumen institucional que enlaza a la página completa de historia. --}}
             <div class="sena-section-content">
                 <p class="eyebrow text-success mb-2">CONOCE EL SENA</p>
                 <h2 id="sena-section-title">Una historia de oportunidades</h2>

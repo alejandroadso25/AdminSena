@@ -7,7 +7,6 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseTeacherController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TrainingCenterController;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 // Página principal con carrusel, accesos rápidos y navegación institucional.
@@ -24,15 +23,6 @@ Route::get('inicio/registro', function () {
 Route::get('sena/historia', function () {
     return view('sena.history');
 })->name('sena.history');
-
-// Sirve imágenes desde resources/assets sin mantener una copia duplicada en public.
-Route::get('assets/{filename}', function (string $filename) {
-    $path = resource_path('assets/' . basename($filename));
-
-    abort_unless(File::exists($path), 404);
-
-    return response()->file($path);
-})->where('filename', '[A-Za-z0-9._% -]+')->name('assets.file');
 
 // CRUD de áreas: listar, crear, guardar, ver, editar, actualizar y eliminar.
 Route::get('areas', [AreaController::class, 'index'])->name('areas.index');

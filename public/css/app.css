@@ -1,7 +1,8 @@
-/* Estilos exclusivos del carrusel principal. */
+/* Estilos exclusivos del carrusel principal y sus imágenes institucionales. */
 .hero-carousel { border-radius: 0 0 4rem 4rem; overflow: hidden; }
 .carousel-image { align-items: center; background-position: center; background-size: cover; min-height: 32rem; position: relative; }
 .carousel-image::before { background: linear-gradient(90deg, rgba(2, 42, 58, .95) 0%, rgba(3, 68, 69, .7) 48%, rgba(55, 159, 36, .48) 100%); content: ''; inset: 0; position: absolute; }
+/* Las imágenes se sirven directamente desde public/assets. */
 .carousel-image-1 { background-image: url('/assets/apren1.jpg'); }
 .carousel-image-2 { background-image: url('/assets/apren2.jpg'); }
 .carousel-image-3 { background-image: url('/assets/aprendi3.jpg'); }
