@@ -41,16 +41,25 @@
     <main>
         @include('includes.carousel')
 
-        <section class="quick-access container" aria-labelledby="quick-access-title">
+        <section class="news-section container" aria-labelledby="news-title">
+            {{-- Noticias informativas estáticas; no tienen navegación ni procesamiento dinámico. --}}
             <div class="section-heading">
-                <div><p class="eyebrow text-success mb-2">PANEL DE ACCESO</p><h2 id="quick-access-title">Administra tu centro</h2></div>
+                <div><p class="eyebrow text-success mb-2">ACTUALIDAD SENA</p><h2 id="news-title">Noticias</h2></div>
                 <span class="section-line"></span>
             </div>
             <div class="row g-3 g-lg-4">
-                <div class="col-12 col-sm-6 col-lg-3"><a class="access-card" href="{{ route('courses.index') }}"><span class="access-icon icon-green"><i class="fas fa-graduation-cap"></i></span><span><strong>Formación</strong><small>Cursos y áreas</small></span><i class="fas fa-arrow-right card-arrow"></i></a></div>
-                <div class="col-12 col-sm-6 col-lg-3"><a class="access-card" href="{{ route('teachers.index') }}"><span class="access-icon icon-blue"><i class="fas fa-chalkboard-teacher"></i></span><span><strong>Instructores</strong><small>Equipo académico</small></span><i class="fas fa-arrow-right card-arrow"></i></a></div>
-                <div class="col-12 col-sm-6 col-lg-3"><a class="access-card" href="{{ route('apprentices.index') }}"><span class="access-icon icon-yellow"><i class="fas fa-user-graduate"></i></span><span><strong>Aprendices</strong><small>Registro y seguimiento</small></span><i class="fas fa-arrow-right card-arrow"></i></a></div>
-                <div class="col-12 col-sm-6 col-lg-3"><a class="access-card" href="{{ route('computers.index') }}"><span class="access-icon icon-purple"><i class="fas fa-laptop"></i></span><span><strong>Recursos</strong><small>Computadores y centros</small></span><i class="fas fa-arrow-right card-arrow"></i></a></div>
+                <div class="col-12 col-md-4"><article class="news-card"><span class="news-date">FORMACIÓN</span><h3>Nuevas oportunidades para aprender</h3><p>Consulta y organiza la oferta académica disponible en tu centro de formación.</p></article></div>
+                <div class="col-12 col-md-4"><article class="news-card"><span class="news-date">COMUNIDAD</span><h3>El talento que transforma</h3><p>Conoce la comunidad de instructores y aprendices que hace parte del SENA.</p></article></div>
+                <div class="col-12 col-md-4"><article class="news-card"><span class="news-date">INSTITUCIONAL</span><h3>Construimos futuro juntos</h3><p>Una institución que conecta conocimiento, trabajo y oportunidades para todos.</p></article></div>
+            </div>
+        </section>
+
+        <section class="sena-section container" aria-labelledby="sena-section-title">
+            <div class="sena-section-content">
+                <p class="eyebrow text-success mb-2">CONOCE EL SENA</p>
+                <h2 id="sena-section-title">Una historia de oportunidades</h2>
+                <p>Desde 1957, el SENA acompaña a los colombianos con formación profesional integral y herramientas para transformar sus proyectos de vida.</p>
+                <a class="btn btn-sena" href="{{ route('sena.history') }}">Conocer nuestra historia <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
         </section>
 

@@ -19,6 +19,11 @@ Route::get('inicio/registro', function () {
     return view('auth.access');
 })->name('auth.access');
 
+// Página informativa independiente con una reseña histórica del SENA.
+Route::get('sena/historia', function () {
+    return view('sena.history');
+})->name('sena.history');
+
 // CRUD de áreas: listar, crear, guardar, ver, editar, actualizar y eliminar.
 Route::get('areas', [AreaController::class, 'index'])->name('areas.index');
 Route::get('areas/create', [AreaController::class, 'create'])->name('areas.create');
