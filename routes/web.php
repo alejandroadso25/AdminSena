@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseTeacherController;
@@ -12,12 +13,24 @@ use Illuminate\Support\Facades\Route;
 // Página principal con carrusel, accesos rápidos y navegación institucional.
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 // Pantalla demostrativa de inicio de sesión y registro; todavía no procesa datos.
 Route::get('inicio/registro', function () {
     return view('auth.access');
 })->name('auth.access');
+Route::post('inicio/registro', [AuthController::class, 'login'])->name('auth.login');
+
+// Formulario independiente para crear una cuenta.
+Route::get('registro', function () {
+    return view('auth.register');
+})->name('auth.register');
+Route::post('registro', [AuthController::class, 'register'])->name('auth.register.store');
+Route::post('cerrar-sesion', [AuthController::class, 'logout'])->name('auth.logout');
+
+// Páginas informativas para consultar convocatorias y ofertas del SENA.
+Route::view('convocatorias', 'convocatorias.index')->name('news.convocatorias');
+Route::view('ofertas', 'ofertas.index')->name('news.ofertas');
 
 // Página informativa independiente con una reseña histórica del SENA.
 Route::get('sena/historia', function () {

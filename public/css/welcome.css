@@ -14,8 +14,14 @@ body.home-page { background: var(--soft); color: var(--ink); font-family: 'Manro
 .sena-brand { align-items: center; display: flex; gap: .45rem; }
 .sena-logo { background: url('/assets/Logo%20Sena.png') center/contain no-repeat; display: inline-block; flex: 0 0 3.25rem; height: 3.25rem; width: 3.25rem; }
 .sena-word { color: var(--sena-green); font-size: .95rem; font-weight: 800; letter-spacing: .04em; }
-.navbar .nav-link { color: #48606a; font-size: .82rem; font-weight: 700; padding: 1.55rem .9rem !important; }
-.navbar .nav-link:hover, .navbar .nav-link.active { background: #edf8e9; color: var(--sena-green); }
+.navbar .nav-link { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 600; padding: 1.55rem .9rem !important; }
+.navbar-light .nav-link { color: #173f4f; }
+.navbar-dark .nav-link { color: #fff; }
+.navbar .nav-link:hover, .navbar .nav-link.active { background: transparent; color: inherit; }
+.auth-nav .nav-link { color: var(--sena-green); font-weight: 700; }
+.auth-nav .nav-link:hover { color: var(--sena-green); }
+.navbar-register { font-size: .9rem; padding: .45rem .8rem; white-space: nowrap; }
+.navbar-auth .nav-link { white-space: nowrap; }
 .btn-sena { background: var(--sena-green); border: 0; border-radius: .55rem; color: #fff; font-weight: 800; padding: .7rem 1.15rem; }
 .btn-sena:hover { background: #2d8700; color: #fff; transform: translateY(-1px); }
 
@@ -24,6 +30,17 @@ body.home-page { background: var(--soft); color: var(--ink); font-family: 'Manro
 .news-date { color: var(--sena-green); font-size: .68rem; font-weight: 800; letter-spacing: .15em; }
 .news-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.65rem; margin: .65rem 0; text-transform: uppercase; }
 .news-card p { color: #71858a; font-size: .84rem; line-height: 1.6; }
+.news-card-action { color: var(--sena-green); font-size: .82rem; font-weight: 800; text-decoration: none; }
+.news-card-action:hover { color: #2d8700; text-decoration: underline; }
+.static-list-section { margin-bottom: 4rem; }
+.static-opportunity-card { background: #fff; border-left: 4px solid var(--sena-green); border-radius: .75rem; height: 100%; padding: 1.5rem; }
+.static-opportunity-card h3 { color: var(--ink); font-family: 'Barlow Condensed', sans-serif; font-size: 1.65rem; margin: .65rem 0; text-transform: uppercase; }
+.static-opportunity-card p { color: #607579; font-size: .84rem; line-height: 1.6; min-height: 4rem; }
+.static-opportunity-card dl { border-top: 1px solid #e2ebe0; display: flex; gap: 1.5rem; margin: 1.25rem 0; padding-top: 1rem; }
+.static-opportunity-card dt { color: #71858a; font-size: .68rem; font-weight: 800; text-transform: uppercase; }
+.static-opportunity-card dd { color: var(--ink); font-size: .8rem; margin: .2rem 0 0; }
+.static-opportunity-card .opportunity-status { color: var(--sena-green); font-weight: 800; }
+.static-opportunity-card .btn { font-size: .78rem; width: 100%; }
 .sena-section { background: #e8f3e4; border-radius: 1rem; margin-bottom: 4rem; overflow: hidden; padding: 3.5rem; position: relative; }
 .sena-section::after { border: 1px solid rgba(57,169,0,.2); border-radius: 50%; content: ''; height: 20rem; position: absolute; right: -5rem; top: -8rem; width: 20rem; }
 .sena-section-content { max-width: 38rem; position: relative; z-index: 1; }
@@ -42,6 +59,9 @@ body.home-page { background: var(--soft); color: var(--ink); font-family: 'Manro
 .access-panel p { color: #71858a; font-size: .85rem; margin-bottom: 1.2rem; }
 .access-panel label { display: block; font-size: .78rem; font-weight: 700; margin: .8rem 0 .35rem; }
 .access-panel .form-control { border-color: #dbe6dc; padding: .7rem .85rem; }
+.auth-switch { color: #71858a; font-size: .85rem; }
+.auth-switch a { color: var(--sena-green); font-weight: 700; text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
 .btn-outline-sena { border: 1px solid var(--sena-green); color: var(--sena-green); font-weight: 800; padding: .7rem 1.15rem; }
 .btn-outline-sena:hover { background: var(--sena-green); color: #fff; }
 
@@ -76,6 +96,8 @@ body.home-page { background: var(--soft); color: var(--ink); font-family: 'Manro
 @media (max-width: 991.98px) {
     .navbar .nav-link { padding: .65rem 0 !important; }
     .navbar-collapse { padding: .75rem 0 1rem; }
+    .navbar-collapse .auth-nav { border-top: 1px solid rgba(72, 96, 106, .15); margin-top: .5rem; padding-top: .5rem; }
+    .navbar-auth .nav-link { font-size: .9rem; padding-left: .35rem !important; padding-right: .35rem !important; }
 }
 
 @media (max-width: 575.98px) {
