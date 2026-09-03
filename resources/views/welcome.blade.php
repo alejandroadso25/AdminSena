@@ -25,7 +25,26 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="d-flex align-items-center gap-2 ms-auto auth-nav navbar-auth">
-                    <a class="nav-link" href="{{ route('auth.access') }}#login">Inicio / Registro</a>
+                    @auth
+                        {{-- Selector de rol público disponible para el usuario autenticado. --}}
+                        <form action="{{ route('user.role.update') }}" method="POST" class="d-flex align-items-center gap-2">
+                            @csrf
+                            @method('PATCH')
+                            <label for="home-role" class="visually-hidden">Seleccionar rol</label>
+                            <select id="home-role" name="role" class="form-select form-select-sm" onchange="this.form.submit()">
+                                <option value="aprendiz" @selected(auth()->user()->role === 'aprendiz')>Aprendiz</option>
+                                <option value="aspirante" @selected(auth()->user()->role === 'aspirante')>Aspirante</option>
+                                <option value="usuario" @selected(auth()->user()->role === 'usuario')>Usuario</option>
+                            </select>
+                        </form>
+                        <span class="nav-link">{{ auth()->user()->name }}</span>
+                        <form action="{{ route('auth.logout') }}" method="POST" class="m-0">
+                            @csrf
+                            <button type="submit" class="btn btn-link nav-link">Cerrar sesión</button>
+                        </form>
+                    @else
+                        <a class="nav-link" href="{{ route('auth.access') }}#login">Inicio / Registro</a>
+                    @endauth
                 </div>
                 <div class="collapse navbar-collapse" id="homeNav">
                     <ul class="navbar-nav ms-lg-4 align-items-lg-center">
