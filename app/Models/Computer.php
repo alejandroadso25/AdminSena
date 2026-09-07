@@ -20,4 +20,12 @@ class Computer extends Model
         // Un computador puede estar asociado a varios aprendices.
         return $this->hasMany(Apprentice::class);
     }
+
+    /**
+     * Imagen principal asociada al computador mediante la relación polimórfica.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable')->where('is_primary', true);
+    }
 }

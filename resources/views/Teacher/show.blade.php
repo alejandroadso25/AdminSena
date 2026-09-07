@@ -41,6 +41,16 @@
                 </div>
             </div>
 
+            {{-- Presenta la imagen principal del instructor si fue cargada. --}}
+            @if ($teacher->image)
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <h5>Imagen</h5>
+                        <img src="{{ asset('storage/'.$teacher->image->path) }}" alt="{{ $teacher->image->alt_text }}" class="img-fluid rounded" style="max-width: 320px;">
+                    </div>
+                </div>
+            @endif
+
             <!-- Botones de acción: Editar y Cancelar -->
             <div class="row mt-4">
                 <div class="col-md-12">

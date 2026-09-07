@@ -5,7 +5,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('apprentices.update', $apprentice) }}" method="POST" class="row g-3">
+            {{-- El formulario conserva la imagen actual si no se selecciona otra. --}}
+            <form action="{{ route('apprentices.update', $apprentice) }}" method="POST" enctype="multipart/form-data" class="row g-3">
                 @csrf
                 @method('PUT')
 
@@ -42,6 +43,15 @@
                             <option value="{{ $computer->id }}" {{ old('computer_id', $apprentice->computer_id) == $computer->id ? 'selected' : '' }}>{{ $computer->number }} - {{ $computer->brand }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="col-md-6">
+                    {{-- Una imagen nueva reemplaza la imagen principal anterior. --}}
+                    <label for="image" class="form-label">Reemplazar imagen</label>
+                    <input type="file" id="image" name="image" class="form-control" accept="image/jpeg,image/png,image/webp">
+                    @if ($apprentice->image)
+                        <img src="{{ asset('storage/'.$apprentice->image->path) }}" alt="{{ $apprentice->image->alt_text }}" class="img-thumbnail mt-2" style="max-width: 180px;">
+                    @endif
                 </div>
 
                 <div class="col-12">

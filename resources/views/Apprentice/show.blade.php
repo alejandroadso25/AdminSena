@@ -45,6 +45,16 @@
                 </div>
             </div>
 
+            {{-- Presenta la imagen principal del aprendiz si fue cargada. --}}
+            @if ($apprentice->image)
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <h5>Imagen</h5>
+                        <img src="{{ asset('storage/'.$apprentice->image->path) }}" alt="{{ $apprentice->image->alt_text }}" class="img-fluid rounded" style="max-width: 320px;">
+                    </div>
+                </div>
+            @endif
+
             <!-- Botones de acción: Editar y Cancelar -->
             <div class="row mt-4">
                 <div class="col-md-12">

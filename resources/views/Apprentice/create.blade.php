@@ -5,7 +5,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('apprentices.store') }}" method="POST" class="row g-3">
+            {{-- El formulario usa multipart para enviar también la imagen del aprendiz. --}}
+            <form action="{{ route('apprentices.store') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                 <h1 class="h4">Registrar Aprendiz</h1>
                 @csrf
 
@@ -42,6 +43,13 @@
                             <option value="{{ $computer->id }}">{{ $computer->number }} - {{ $computer->brand }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="col-md-6">
+                    {{-- La imagen es opcional y se almacena en el disco público local. --}}
+                    <label for="image" class="form-label">Imagen del aprendiz</label>
+                    <input type="file" id="image" name="image" class="form-control" accept="image/jpeg,image/png,image/webp">
+                    <small class="text-muted">Formatos permitidos: JPG, PNG o WebP. Máximo 4 MB.</small>
                 </div>
 
                 <div class="col-12">

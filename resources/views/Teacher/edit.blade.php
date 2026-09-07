@@ -5,7 +5,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('teachers.update', $teacher) }}" method="POST" class="row g-3">
+            {{-- El formulario permite conservar la imagen actual o reemplazarla. --}}
+            <form action="{{ route('teachers.update', $teacher) }}" method="POST" enctype="multipart/form-data" class="row g-3">
                 @csrf
                 @method('PUT')
 
@@ -37,6 +38,15 @@
                             <option value="{{ $center->id }}" {{ old('training_center_id', $teacher->training_center_id) == $center->id ? 'selected' : '' }}>{{ $center->name }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="col-md-6">
+                    {{-- La nueva imagen solo se procesa si el administrador selecciona un archivo. --}}
+                    <label for="image" class="form-label">Reemplazar imagen</label>
+                    <input type="file" id="image" name="image" class="form-control" accept="image/jpeg,image/png,image/webp">
+                    @if ($teacher->image)
+                        <img src="{{ asset('storage/'.$teacher->image->path) }}" alt="{{ $teacher->image->alt_text }}" class="img-thumbnail mt-2" style="max-width: 180px;">
+                    @endif
                 </div>
 
                 <div class="col-12">

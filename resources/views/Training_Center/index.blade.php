@@ -14,6 +14,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Ubicación</th>
                             <th>Acciones</th>
@@ -22,6 +23,14 @@
                     <tbody>
                         @foreach ($trainingCenters as $center)
                             <tr>
+                                {{-- Muestra la imagen principal del centro cuando existe. --}}
+                                <td>
+                                    @if ($center->image)
+                                        <img src="{{ asset('storage/'.$center->image->path) }}" alt="{{ $center->image->alt_text }}" class="img-thumbnail" style="width: 70px; height: 50px; object-fit: cover;">
+                                    @else
+                                        <span class="text-muted">Sin imagen</span>
+                                    @endif
+                                </td>
                                 <td>{{ $center->name }}</td>
                                 <td>{{ $center->location }}</td>
                                 <td>

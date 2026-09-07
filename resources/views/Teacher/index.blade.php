@@ -14,6 +14,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Acciones</th>
@@ -22,6 +23,14 @@
                     <tbody>
                         @foreach ($teachers as $teacher)
                             <tr>
+                                {{-- Muestra la imagen principal del instructor cuando existe. --}}
+                                <td>
+                                    @if ($teacher->image)
+                                        <img src="{{ asset('storage/'.$teacher->image->path) }}" alt="{{ $teacher->image->alt_text }}" class="img-thumbnail" style="width: 70px; height: 50px; object-fit: cover;">
+                                    @else
+                                        <span class="text-muted">Sin imagen</span>
+                                    @endif
+                                </td>
                                 <td>{{ $teacher->name }}</td>
                                 <td>{{ $teacher->email }}</td>
                                 <td>

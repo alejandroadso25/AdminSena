@@ -5,7 +5,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('computers.store') }}" method="POST" class="row g-3">
+            {{-- El formulario usa multipart para enviar datos y la imagen al servidor. --}}
+            <form action="{{ route('computers.store') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                 @csrf
 
                 <div class="col-md-6">
@@ -16,6 +17,13 @@
                 <div class="col-md-6">
                     <label for="brand" class="form-label">Marca</label>
                     <input type="text" id="brand" name="brand" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    {{-- La imagen del computador es opcional y se guarda en storage local. --}}
+                    <label for="image" class="form-label">Imagen del computador</label>
+                    <input type="file" id="image" name="image" class="form-control" accept="image/jpeg,image/png,image/webp">
+                    <small class="text-muted">Formatos permitidos: JPG, PNG o WebP. Máximo 4 MB.</small>
                 </div>
 
                 <div class="col-12">

@@ -14,6 +14,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Celular</th>
@@ -23,6 +24,14 @@
                     <tbody>
                         @foreach ($apprentices as $apprentice)
                             <tr>
+                                {{-- Muestra la imagen principal del aprendiz cuando existe. --}}
+                                <td>
+                                    @if ($apprentice->image)
+                                        <img src="{{ asset('storage/'.$apprentice->image->path) }}" alt="{{ $apprentice->image->alt_text }}" class="img-thumbnail" style="width: 70px; height: 50px; object-fit: cover;">
+                                    @else
+                                        <span class="text-muted">Sin imagen</span>
+                                    @endif
+                                </td>
                                 <td>{{ $apprentice->name }}</td>
                                 <td>{{ $apprentice->email }}</td>
                                 <td>{{ $apprentice->cell_number }}</td>

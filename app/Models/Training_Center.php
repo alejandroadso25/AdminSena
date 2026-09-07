@@ -43,4 +43,12 @@ class Training_Center extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    /**
+     * Imagen principal del centro de formación para mostrarla en el CRUD.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable')->where('is_primary', true);
+    }
 }

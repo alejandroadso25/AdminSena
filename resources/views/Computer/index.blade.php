@@ -14,6 +14,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>Imagen</th>
                             <th>Número</th>
                             <th>Marca</th>
                             <th>Acciones</th>
@@ -22,6 +23,14 @@
                     <tbody>
                         @foreach ($computer as $item)
                             <tr>
+                                {{-- Muestra la imagen almacenada o un texto cuando aún no existe. --}}
+                                <td>
+                                    @if ($item->image)
+                                        <img src="{{ asset('storage/'.$item->image->path) }}" alt="{{ $item->image->alt_text }}" class="img-thumbnail" style="width: 70px; height: 50px; object-fit: cover;">
+                                    @else
+                                        <span class="text-muted">Sin imagen</span>
+                                    @endif
+                                </td>
                                 <td>{{ $item->number }}</td>
                                 <td>{{ $item->brand }}</td>
                                 <td>

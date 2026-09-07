@@ -5,7 +5,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('teachers.store') }}" method="POST" class="row g-3">
+            {{-- El formulario usa multipart para enviar también la imagen del instructor. --}}
+            <form action="{{ route('teachers.store') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                 <h1 class="h4">Registrar Instructor</h1>
                 @csrf
 
@@ -37,6 +38,13 @@
                             <option value="{{ $center->id }}">{{ $center->name }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="col-md-6">
+                    {{-- La imagen del instructor es opcional y se guarda en storage local. --}}
+                    <label for="image" class="form-label">Imagen del instructor</label>
+                    <input type="file" id="image" name="image" class="form-control" accept="image/jpeg,image/png,image/webp">
+                    <small class="text-muted">Formatos permitidos: JPG, PNG o WebP. Máximo 4 MB.</small>
                 </div>
 
                 <div class="col-12">

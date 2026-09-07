@@ -42,4 +42,12 @@ class Teacher extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    /**
+     * Imagen principal del instructor para mostrarla en el CRUD.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable')->where('is_primary', true);
+    }
 }

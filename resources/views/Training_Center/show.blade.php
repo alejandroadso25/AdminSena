@@ -28,6 +28,16 @@
                 </div>
             </div>
 
+            {{-- Presenta la imagen principal del centro si fue cargada. --}}
+            @if ($training_center->image)
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <h5>Imagen</h5>
+                        <img src="{{ asset('storage/'.$training_center->image->path) }}" alt="{{ $training_center->image->alt_text }}" class="img-fluid rounded" style="max-width: 320px;">
+                    </div>
+                </div>
+            @endif
+
             <!-- Botones de acción: Editar y Cancelar -->
             <div class="row mt-4">
                 <div class="col-md-12">

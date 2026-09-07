@@ -28,6 +28,16 @@
                 </div>
             </div>
 
+            {{-- Presenta la imagen principal del computador si fue cargada. --}}
+            @if ($computer->image)
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <h5>Imagen</h5>
+                        <img src="{{ asset('storage/'.$computer->image->path) }}" alt="{{ $computer->image->alt_text }}" class="img-fluid rounded" style="max-width: 320px;">
+                    </div>
+                </div>
+            @endif
+
             <!-- Botones de acción: Editar y Cancelar -->
             <div class="row mt-4">
                 <div class="col-md-12">
