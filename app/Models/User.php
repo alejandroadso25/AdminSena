@@ -47,4 +47,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Inscripciones realizadas por el usuario.
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+
 }

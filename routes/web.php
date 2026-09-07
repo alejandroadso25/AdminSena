@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseTeacherController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TrainingCenterController;
 use Illuminate\Support\Facades\Route;
@@ -36,9 +37,14 @@ Route::patch('mi-rol', [AuthController::class, 'updateRole'])
     ->middleware('auth')
     ->name('user.role.update');
 
-// Páginas informativas para consultar convocatorias y ofertas del SENA.
-Route::view('convocatorias', 'convocatorias.index')->name('news.convocatorias');
+// Convocatorias cargadas desde los cursos existentes.
+Route::get('convocatorias', [CourseController::class, 'offers'])->name('news.convocatorias');
 Route::view('ofertas', 'ofertas.index')->name('news.ofertas');
+
+// Solo usuarios autenticados pueden inscribirse a un curso.
+Route::post('courses/{course}/enroll', [EnrollmentController::class, 'store'])
+    ->middleware('auth')
+    ->name('courses.enroll');
 
 // Página informativa independiente con una reseña histórica del SENA.
 Route::get('sena/historia', function () {

@@ -12,9 +12,21 @@ class Course extends Model
     // Incluye las claves foráneas usadas por los selectores de los formularios.
     protected $fillable = [
         'course_number',
+        'program_name',
         'day',
+        'training_type',
+        'location',
+        'is_open',
+        'description',
+        'duration',
+        'capacity',
         'area_id',
         'training_center_id'
+    ];
+
+    protected $casts = [
+        // Convierte el estado de la convocatoria a booleano.
+        'is_open' => 'boolean',
     ];
 
     public function area()
@@ -40,4 +52,11 @@ class Course extends Model
         // Relación muchos a muchos mediante la tabla course__teachers.
         return $this->belongsToMany(Teacher::class, 'course__teachers');
     }
+
+    // Inscripciones recibidas por este curso.
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+
 }

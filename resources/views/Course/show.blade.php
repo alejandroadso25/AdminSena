@@ -16,8 +16,8 @@
             <!-- Datos básicos del curso -->
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <h5>Número del Curso</h5>
-                    <p>{{ $course->course_number }}</p>
+                    <h5>Programa</h5>
+                    <p>{{ $course->program_name ?: $course->course_number }}</p>
                 </div>
             </div>
 
@@ -38,6 +38,14 @@
                 <div class="col-md-6">
                     <h5>Centro de Formación</h5>
                     <p>{{ $course->trainingCenter->name ?? 'N/A' }}</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Tipo de formación</h5>
+                    <p>{{ $course->training_type ?? 'N/A' }}</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Ubicación</h5>
+                    <p>{{ $course->location ?? 'N/A' }}</p>
                 </div>
             </div>
 

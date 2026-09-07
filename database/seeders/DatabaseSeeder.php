@@ -11,6 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        
+        // Los programas se registran desde el CRUD y no como datos automáticos.
     }
 }

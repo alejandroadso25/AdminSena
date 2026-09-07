@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Enrollment extends Model
+{
+    use HasFactory;
+
+    // Campos permitidos para crear una inscripción con su horario.
+    protected $fillable = ['user_id', 'course_id', 'schedule', 'status'];
+
+    // Usuario que envió la inscripción.
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // Curso seleccionado como oferta.
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+}

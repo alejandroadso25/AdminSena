@@ -14,7 +14,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Número</th>
+                            <th>Programa</th>
                             <th>Día</th>
                             <th>Acciones</th>
                         </tr>
@@ -22,7 +22,7 @@
                     <tbody>
                         @foreach ($courses as $course)
                             <tr>
-                                <td>{{ $course->course_number }}</td>
+                                <td>{{ $course->program_name ?: $course->course_number }}</td>
                                 <td>{{ $course->day }}</td>
                                 <td>
                                     <!-- Botón para visualizar detalles del curso -->

@@ -12,7 +12,7 @@ body.home-page { background: var(--soft); color: var(--ink); font-family: 'Manro
 .gov-mark { font-size: 1.1rem; margin-right: .45rem; }
 .main-nav { min-height: 4.2rem; }
 .sena-brand { align-items: center; display: flex; gap: .45rem; }
-.sena-logo { background: url('/assets/Logo%20Sena.png') center/contain no-repeat; display: inline-block; flex: 0 0 3.25rem; height: 3.25rem; width: 3.25rem; }
+.sena-logo { background: url('/storage/images/Logo%20Sena.png') center/contain no-repeat; display: inline-block; flex: 0 0 3.25rem; height: 3.25rem; width: 3.25rem; }
 .sena-word { color: var(--sena-green); font-size: .95rem; font-weight: 800; letter-spacing: .04em; }
 .navbar .nav-link { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 600; padding: 1.55rem .9rem !important; }
 .navbar-light .nav-link { color: #173f4f; }
@@ -22,6 +22,7 @@ body.home-page { background: var(--soft); color: var(--ink); font-family: 'Manro
 .auth-nav .nav-link:hover { color: var(--sena-green); }
 .navbar-register { font-size: .9rem; padding: .45rem .8rem; white-space: nowrap; }
 .navbar-auth .nav-link { white-space: nowrap; }
+.guest-auth-nav .nav-link { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 600; padding: 1.55rem .9rem; }
 .btn-sena { background: var(--sena-green); border: 0; border-radius: .55rem; color: #fff; font-weight: 800; padding: .7rem 1.15rem; }
 .btn-sena:hover { background: #2d8700; color: #fff; transform: translateY(-1px); }
 

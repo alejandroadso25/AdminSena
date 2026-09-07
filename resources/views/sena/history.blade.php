@@ -13,8 +13,8 @@
 
         <div class="history-content">
             <div class="history-media">
-                {{-- Imagen histórica almacenada en la carpeta pública de assets. --}}
-                <img src="{{ asset('assets/Sena 1957.jpg') }}" alt="SENA en 1957">
+                {{-- Imagen histórica servida desde el almacenamiento público. --}}
+                <img src="{{ asset('storage/images/Sena 1957.jpg') }}" alt="SENA en 1957">
                 <span class="history-year">1957</span>
             </div>
             <div>
@@ -26,8 +26,8 @@
 
         <div class="history-content history-content-reverse">
             <div class="history-media">
-                {{-- Imagen actual del SENA servida directamente desde public/assets. --}}
-                <img src="{{ asset('assets/Sena hoy.jpg') }}" alt="SENA en la actualidad">
+                {{-- Imagen actual del SENA servida desde el almacenamiento público. --}}
+                <img src="{{ asset('storage/images/Sena hoy.jpg') }}" alt="SENA en la actualidad">
                 <span class="history-year">HOY</span>
             </div>
             <div>

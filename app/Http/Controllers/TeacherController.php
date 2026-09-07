@@ -40,6 +40,7 @@ class TeacherController extends Controller
     {
         $teacher = Teacher::create($request->all());
 
+        // Redirige a la lista de instructores después de guardar el registro.
         return redirect()->route('teachers.index')->with('record', $teacher->toJson(JSON_PRETTY_PRINT));
     }
 
@@ -57,6 +58,7 @@ class TeacherController extends Controller
     {
         $teacher->update($request->all());
 
+        // Redirige a la lista de instructores después de actualizar el registro.
         return redirect()->route('teachers.index');
     }
 
@@ -65,6 +67,7 @@ class TeacherController extends Controller
     {
         $teacher->delete();
 
+        // Redirige a la lista de instructores después de eliminar el registro.
         return redirect()->route('teachers.index');
     }
 }

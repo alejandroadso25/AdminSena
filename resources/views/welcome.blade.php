@@ -16,7 +16,9 @@
                 <span class="gov-mark">✦</span><span>sena.edu.co</span>
             </div>
         </div>
-        <nav class="navbar navbar-light bg-white py-0" aria-label="Navegación principal">
+        @auth
+            {{-- El navbar completo solo se renderiza cuando hay una sesión activa. --}}
+            <nav class="navbar navbar-light bg-white py-0" aria-label="Navegación principal">
             <div class="container main-nav">
                 <a class="navbar-brand sena-brand" href="{{ url('/') }}" aria-label="AdminSena inicio">
                     <span class="sena-logo" role="img" aria-label="Logo SENA"></span><span class="sena-word">AdminSena</span>
@@ -48,15 +50,25 @@
                 </div>
                 <div class="collapse navbar-collapse" id="homeNav">
                     <ul class="navbar-nav ms-lg-4 align-items-lg-center">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('areas.index') }}">Áreas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('training-centers.index') }}">Centros de Formación</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('computers.index') }}">Computadores</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('courses.index') }}">Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('teachers.index') }}">Instructores</a></li>
+                        @auth
+                            {{-- Los enlaces de registros solo se muestran a usuarios autenticados. --}}
+                            <li class="nav-item"><a class="nav-link" href="{{ route('areas.index') }}">Áreas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('training-centers.index') }}">Centros de Formación</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('computers.index') }}">Computadores</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('courses.index') }}">Cursos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('teachers.index') }}">Instructores</a></li>
+                        @endauth
                     </ul>
                 </div>
             </div>
-        </nav>
+            </nav>
+        @endauth
+        @guest
+            {{-- El acceso a login permanece visible sin mostrar el navbar administrativo. --}}
+            <div class="container d-flex justify-content-end auth-nav navbar-auth guest-auth-nav">
+                <a class="nav-link" href="{{ route('auth.access') }}#login">Inicio / Registro</a>
+            </div>
+        @endguest
     </header>
 
     {{-- Contenido principal: carrusel y tarjetas de acceso a los CRUD. --}}
