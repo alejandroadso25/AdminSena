@@ -41,9 +41,9 @@ Route::patch('mi-rol', [AuthController::class, 'updateRole'])
 Route::get('convocatorias', [CourseController::class, 'offers'])->name('news.convocatorias');
 Route::view('ofertas', 'ofertas.index')->name('news.ofertas');
 
-// Solo usuarios autenticados pueden inscribirse a un curso.
+// Solo los aspirantes, aprendices y administradores pueden inscribirse a una convocatoria.
 Route::post('courses/{course}/enroll', [EnrollmentController::class, 'store'])
-    ->middleware('auth')
+    ->middleware(['auth', 'role:aspirante,aprendiz,admin'])
     ->name('courses.enroll');
 
 // Página informativa independiente con una reseña histórica del SENA.

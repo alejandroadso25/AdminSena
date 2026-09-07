@@ -10,6 +10,11 @@ class RoleMiddleware
 {
     /**
      * Permite continuar solo si el usuario tiene uno de los roles indicados.
+     * Roles definidos por el sistema:
+     * - usuario: registro básico
+     * - aspirante: puede inscribirse a convocatorias
+     * - aprendiz: ya fue admitido y tiene acceso estudiantil
+     * - admin: administra todo el sistema
      */
     public function handle(Request $request, Closure $next, string ...$roles): Response
     {

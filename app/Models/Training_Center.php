@@ -35,4 +35,12 @@ class Training_Center extends Model
         // Centro al que pertenecen varios instructores.
         return $this->hasMany(Teacher::class);
     }
+
+    /**
+     * Un centro de formación puede tener imágenes asociadas.
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

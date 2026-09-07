@@ -34,4 +34,12 @@ class Teacher extends Model
         // Un instructor puede impartir varios cursos y viceversa.
         return $this->belongsToMany(Course::class, 'course__teachers');
     }
+
+    /**
+     * Un instructor puede tener varias imágenes de perfil o galerías.
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

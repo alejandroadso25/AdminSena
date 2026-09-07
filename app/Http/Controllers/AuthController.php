@@ -50,8 +50,8 @@ class AuthController extends Controller
             'password' => ['required', 'string', 'min:7', 'confirmed'],
         ]);
 
-        // El registro público nunca puede elegir privilegios; comienza como aspirante.
-        $data['role'] = 'aspirante';
+        // El registro público empieza como usuario básico; luego puede avanzar a aspirante o aprendiz.
+        $data['role'] = User::ROLE_USUARIO;
 
         // El modelo User aplica el hash configurado para la contraseña.
         User::create($data);
@@ -63,13 +63,21 @@ class AuthController extends Controller
 
     /**
      * Actualiza el rol público elegido por el usuario desde el home.
+     * En la parte pública del sistema solo se aceptan aspirante y aprendiz.
      */
     public function updateRole(Request $request)
     {
-        // Solo se aceptan roles públicos; admin no puede asignarse desde este formulario.
+        // Solo se aceptan los roles que representan la identidad pública del usuario.
         $data = $request->validate([
-            'role' => ['required', 'string', 'in:usuario,aspirante,aprendiz'],
+            'role' => ['required', 'string', 'in:aspirante,aprendiz'],
         ]);
+
+        // El administrador no puede activarse desde esta pantalla pública.
+        $allowedRoles = [User::ROLE_ASPIRANTE, User::ROLE_APRENDIZ];
+
+        if (! in_array($data['role'], $allowedRoles, true)) {
+            abort(403, 'Rol no permitido para esta actualización.');
+        }
 
         // Guarda el rol seleccionado en la cuenta autenticada.
         $request->user()->update(['role' => $data['role']]);

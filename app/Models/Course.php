@@ -59,4 +59,12 @@ class Course extends Model
         return $this->hasMany(Enrollment::class);
     }
 
+    /**
+     * Un curso puede tener varias imágenes asociadas.
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
 }

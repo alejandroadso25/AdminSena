@@ -28,15 +28,16 @@
                 </button>
                 <div class="d-flex align-items-center gap-2 ms-auto auth-nav navbar-auth">
                     @auth
-                        {{-- Selector de rol público disponible para el usuario autenticado. --}}
+                        {{-- Selector de rol público disponible para el usuario autenticado.
+                             Se mantienen únicamente las dos opciones de la lógica de negocio:
+                             aspirante para inscripción y aprendiz para etapa ya admitida. --}}
                         <form action="{{ route('user.role.update') }}" method="POST" class="d-flex align-items-center gap-2">
                             @csrf
                             @method('PATCH')
                             <label for="home-role" class="visually-hidden">Seleccionar rol</label>
                             <select id="home-role" name="role" class="form-select form-select-sm" onchange="this.form.submit()">
-                                <option value="aprendiz" @selected(auth()->user()->role === 'aprendiz')>Aprendiz</option>
                                 <option value="aspirante" @selected(auth()->user()->role === 'aspirante')>Aspirante</option>
-                                <option value="usuario" @selected(auth()->user()->role === 'usuario')>Usuario</option>
+                                <option value="aprendiz" @selected(auth()->user()->role === 'aprendiz')>Aprendiz</option>
                             </select>
                         </form>
                         <span class="nav-link">{{ auth()->user()->name }}</span>
