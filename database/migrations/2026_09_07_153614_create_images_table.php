@@ -31,8 +31,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            // Optimiza la búsqueda por entidad y permite consultar rapidamente
-            // la imagen principal de cada registro relacionado.
+            // Optimiza la búsqueda por entidad y permite consultar rapidamente la imagen principal de cada registro relacionado.
             $table->index(['imageable_id', 'imageable_type'], 'images_imageable_index');
             $table->index('is_primary');
         });
