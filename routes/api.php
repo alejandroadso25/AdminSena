@@ -20,6 +20,9 @@ Route::get('/computers/{computer}', [ResourceController::class, 'showComputer'])
 // PUT /api/v1/computers/{computer} -> actualiza un computador específico.
 Route::put('/computers/{computer}', [ResourceController::class, 'updateComputer'])->name('api.computers.update');
 
+// DELETE /api/v1/computers/{computer} -> elimina un computador específico.
+Route::delete('/computers/{computer}', [ResourceController::class, 'destroyComputer'])->name('api.computers.destroy');
+
 // POST /api/v1/areas -> crea una nueva área.
 Route::post('/areas', [ResourceController::class, 'storeArea'])->name('api.areas.store');
 
@@ -31,6 +34,9 @@ Route::get('/areas/{area}', [ResourceController::class, 'showArea'])->name('api.
 
 // PUT /api/v1/areas/{area} -> actualiza un área específica.
 Route::put('/areas/{area}', [ResourceController::class, 'updateArea'])->name('api.areas.update');
+
+// DELETE /api/v1/areas/{area} -> elimina un área específica.
+Route::delete('/areas/{area}', [ResourceController::class, 'destroyArea'])->name('api.areas.destroy');
 
 // POST /api/v1/courses -> crea un nuevo curso.
 Route::post('/courses', [ResourceController::class, 'storeCourse'])->name('api.courses.store');
@@ -44,6 +50,9 @@ Route::get('/courses/{course}', [ResourceController::class, 'showCourse'])->name
 // PUT /api/v1/courses/{course} -> actualiza un curso específico.
 Route::put('/courses/{course}', [ResourceController::class, 'updateCourse'])->name('api.courses.update');
 
+// DELETE /api/v1/courses/{course} -> elimina un curso específico.
+Route::delete('/courses/{course}', [ResourceController::class, 'destroyCourse'])->name('api.courses.destroy');
+
 // POST /api/v1/teachers -> crea un nuevo instructor.
 Route::post('/teachers', [ResourceController::class, 'storeTeacher'])->name('api.teachers.store');
 
@@ -55,6 +64,9 @@ Route::get('/teachers/{teacher}', [ResourceController::class, 'showTeacher'])->n
 
 // PUT /api/v1/teachers/{teacher} -> actualiza un instructor específico.
 Route::put('/teachers/{teacher}', [ResourceController::class, 'updateTeacher'])->name('api.teachers.update');
+
+// DELETE /api/v1/teachers/{teacher} -> elimina un instructor específico.
+Route::delete('/teachers/{teacher}', [ResourceController::class, 'destroyTeacher'])->name('api.teachers.destroy');
 
 // POST /api/v1/apprentices -> crea un nuevo aprendiz.
 Route::post('/apprentices', [ResourceController::class, 'storeApprentice'])->name('api.apprentices.store');
@@ -68,6 +80,9 @@ Route::get('/apprentices/{apprentice}', [ResourceController::class, 'showApprent
 // PUT /api/v1/apprentices/{apprentice} -> actualiza un aprendiz específico.
 Route::put('/apprentices/{apprentice}', [ResourceController::class, 'updateApprentice'])->name('api.apprentices.update');
 
+// DELETE /api/v1/apprentices/{apprentice} -> elimina un aprendiz específico.
+Route::delete('/apprentices/{apprentice}', [ResourceController::class, 'destroyApprentice'])->name('api.apprentices.destroy');
+
 // POST /api/v1/training-centers -> crea un nuevo centro de formación.
 Route::post('/training-centers', [ResourceController::class, 'storeTrainingCenter'])->name('api.training_centers.store');
 
@@ -79,6 +94,9 @@ Route::get('/training-centers/{trainingCenter}', [ResourceController::class, 'sh
 
 // PUT /api/v1/training-centers/{trainingCenter} -> actualiza un centro específico.
 Route::put('/training-centers/{trainingCenter}', [ResourceController::class, 'updateTrainingCenter'])->name('api.training_centers.update');
+
+// DELETE /api/v1/training-centers/{trainingCenter} -> elimina un centro específico.
+Route::delete('/training-centers/{trainingCenter}', [ResourceController::class, 'destroyTrainingCenter'])->name('api.training_centers.destroy');
 
 // GET /api/v1/enrollments -> devuelve todas las inscripciones con sus relaciones.
 Route::get('/enrollments', [ResourceController::class, 'enrollments'])->name('api.enrollments');
@@ -92,6 +110,9 @@ Route::get('/enrollments/{enrollment}', [ResourceController::class, 'showEnrollm
 // PUT /api/v1/enrollments/{enrollment} -> actualiza el estado de una inscripción.
 Route::put('/enrollments/{enrollment}', [ResourceController::class, 'updateEnrollment'])->name('api.enrollments.update');
 
+// DELETE /api/v1/enrollments/{enrollment} -> elimina una inscripción específica.
+Route::delete('/enrollments/{enrollment}', [ResourceController::class, 'destroyEnrollment'])->name('api.enrollments.destroy');
+
 // GET /api/v1/course-teachers -> devuelve las asignaciones curso-instructor.
 Route::get('/course-teachers', [ResourceController::class, 'courseTeachers'])->name('api.course_teachers');
 
@@ -104,6 +125,9 @@ Route::get('/course-teachers/{courseTeacher}', [ResourceController::class, 'show
 // PUT /api/v1/course-teachers/{courseTeacher} -> actualiza una asignación.
 Route::put('/course-teachers/{courseTeacher}', [ResourceController::class, 'updateCourseTeacher'])->name('api.course_teachers.update');
 
+// DELETE /api/v1/course-teachers/{courseTeacher} -> elimina una asignación específica.
+Route::delete('/course-teachers/{courseTeacher}', [ResourceController::class, 'destroyCourseTeacher'])->name('api.course_teachers.destroy');
+
 // GET /api/v1/images -> devuelve los registros de imágenes.
 Route::get('/images', [ResourceController::class, 'images'])->name('api.images');
 
@@ -115,6 +139,9 @@ Route::get('/images/{image}', [ResourceController::class, 'showImage'])->name('a
 
 // PUT /api/v1/images/{image} -> actualiza los metadatos de una imagen.
 Route::put('/images/{image}', [ResourceController::class, 'updateImage'])->name('api.images.update');
+
+// DELETE /api/v1/images/{image} -> elimina una imagen específica.
+Route::delete('/images/{image}', [ResourceController::class, 'destroyImage'])->name('api.images.destroy');
 
 // GET /api/v1/summary -> devuelve un resumen general del sistema.
 Route::get('/summary', [ResourceController::class, 'summary'])->name('api.summary');

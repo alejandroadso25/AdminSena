@@ -85,6 +85,16 @@ class ResourceController extends Controller
         ]);
     }
 
+    // Elimina un computador existente; sus aprendices conservan el registro según la FK configurada.
+    public function destroyComputer(Computer $computer)
+    {
+        $computer->delete();
+
+        return response()->json([
+            'message' => 'Computador eliminado correctamente.',
+        ]);
+    }
+
     /**
      * Crea una nueva área a partir de una petición POST.
      */
@@ -130,6 +140,16 @@ class ResourceController extends Controller
         return response()->json([
             'message' => 'Área actualizada correctamente.',
             'data' => $area,
+        ]);
+    }
+
+    // Elimina un área existente.
+    public function destroyArea(Area $area)
+    {
+        $area->delete();
+
+        return response()->json([
+            'message' => 'Área eliminada correctamente.',
         ]);
     }
 
@@ -203,6 +223,16 @@ class ResourceController extends Controller
         ]);
     }
 
+    // Elimina un curso existente junto con las relaciones configuradas por la base de datos.
+    public function destroyCourse(Course $course)
+    {
+        $course->delete();
+
+        return response()->json([
+            'message' => 'Curso eliminado correctamente.',
+        ]);
+    }
+
     /**
      * Crea un nuevo instructor a partir de una petición POST.
      */
@@ -260,6 +290,16 @@ class ResourceController extends Controller
         return response()->json([
             'message' => 'Instructor actualizado correctamente.',
             'data' => $teacher->load(['area', 'trainingCenter', 'image']),
+        ]);
+    }
+
+    // Elimina un instructor existente junto con sus asignaciones relacionadas.
+    public function destroyTeacher(Teacher $teacher)
+    {
+        $teacher->delete();
+
+        return response()->json([
+            'message' => 'Instructor eliminado correctamente.',
         ]);
     }
 
@@ -325,6 +365,16 @@ class ResourceController extends Controller
         ]);
     }
 
+    // Elimina un aprendiz existente.
+    public function destroyApprentice(Apprentice $apprentice)
+    {
+        $apprentice->delete();
+
+        return response()->json([
+            'message' => 'Aprendiz eliminado correctamente.',
+        ]);
+    }
+
     /**
      * Crea un nuevo centro de formación a partir de una petición POST.
      */
@@ -372,6 +422,16 @@ class ResourceController extends Controller
         return response()->json([
             'message' => 'Centro de formación actualizado correctamente.',
             'data' => $trainingCenter->load('image'),
+        ]);
+    }
+
+    // Elimina un centro de formación existente.
+    public function destroyTrainingCenter(Training_Center $trainingCenter)
+    {
+        $trainingCenter->delete();
+
+        return response()->json([
+            'message' => 'Centro de formación eliminado correctamente.',
         ]);
     }
 
@@ -431,6 +491,16 @@ class ResourceController extends Controller
         ]);
     }
 
+    // Elimina una inscripción existente.
+    public function destroyEnrollment(Enrollment $enrollment)
+    {
+        $enrollment->delete();
+
+        return response()->json([
+            'message' => 'Inscripción eliminada correctamente.',
+        ]);
+    }
+
     // Devuelve todas las asignaciones entre cursos e instructores.
     public function courseTeachers()
     {
@@ -476,6 +546,16 @@ class ResourceController extends Controller
         return response()->json([
             'message' => 'Asignación actualizada correctamente.',
             'data' => $courseTeacher->load(['course', 'teacher']),
+        ]);
+    }
+
+    // Elimina una asignación curso-instructor existente.
+    public function destroyCourseTeacher(Course_Teacher $courseTeacher)
+    {
+        $courseTeacher->delete();
+
+        return response()->json([
+            'message' => 'Asignación eliminada correctamente.',
         ]);
     }
 
@@ -532,6 +612,16 @@ class ResourceController extends Controller
         return response()->json([
             'message' => 'Imagen actualizada correctamente.',
             'data' => $image,
+        ]);
+    }
+
+    // Elimina el registro de una imagen; no borra automáticamente el archivo físico.
+    public function destroyImage(Image $image)
+    {
+        $image->delete();
+
+        return response()->json([
+            'message' => 'Imagen eliminada correctamente.',
         ]);
     }
 
