@@ -10,7 +10,7 @@ use App\Models\Course;
 use App\Models\Teacher;
 use App\Models\Training_Center;
 
-class CatalogController extends Controller
+class ResourceController extends Controller
 {
     /**
      * Verifica que la API esté disponible.
